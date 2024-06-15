@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -21,4 +22,5 @@ def fazer_login(request):
 
 def fazer_logout(request):
     logout(request)
-    return render(request, 'autenticacao/logout.html')
+    messages.success(request, 'Deslogado com sucesso!')
+    return render(request, 'pratoservido/homepage.html')
