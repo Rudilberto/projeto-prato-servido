@@ -1,0 +1,28 @@
+.messages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 3rem;
+    padding: 0.6rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &:has(> .success) {
+        background-color: #d4edda; 
+        border: 1px solid #c3e6cb;
+        color: #155724;
+    }
+
+    &:has(> .error) {
+        background-color: lightcoral;
+        border: 1px solid red;
+        color: darkred;
+    }
+}
+
+.success, .error {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}

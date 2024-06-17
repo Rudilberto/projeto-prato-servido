@@ -1,4 +1,4 @@
-{% extends 'pratoservido/base.html' %} {% load static %} {% block body %}
+{% extends 'core/base.html' %} {% load static %} {% block body %}
 
 {% if messages %}
 <div class="messages">
@@ -9,7 +9,7 @@
 {% endif %}
 
 <h1>Hello, world</h1>
-<h2>Teste</h2>
-<h3>alou</h3>
+
+<a href="{% url 'fazer_login' %}">Logar</a>
 
 {% endblock %}

@@ -1,1 +1,42 @@
-h1{font-size:24px;color:blue}h2{color:red;font-style:italic}h3{font-weight:bold;font-size:50px;color:green}/*# sourceMappingURL=style.css.map */
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+* {
+  font-size: 1.6rem;
+}
+
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 3rem;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.messages:has(> .success) {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+.messages:has(> .error) {
+  background-color: lightcoral;
+  border: 1px solid red;
+  color: darkred;
+}
+
+.success, .error {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -7,14 +7,16 @@ from django.contrib import messages
 def fazer_login(request):
     if request.method == 'POST':
         dados = request.POST.dict()
+        print(dados)
         username = dados['username']
         password = dados['password']
         usuario = authenticate(username=username, password=password)
         if usuario is not None:
             login(request, usuario)
-            redirect('homepage')
+            messages.success(request, 'logado com sucesso!')
+            return redirect('homepage')
         else:
-            pass
+            messages.success(request, 'nome de usuario ou senha errada!')
         return render(request, 'autenticacao/login.html')
 
     else:
