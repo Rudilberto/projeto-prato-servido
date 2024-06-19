@@ -18,11 +18,23 @@
     &:has(> .error) {
         background-color: lightcoral;
         border: 1px solid red;
-        color: darkred;
+        color: black;
+    }
+
+    &:has(> .warning) {
+        background-color: #fff3cd; 
+        border: 1px solid #ffeeba;
+        color: #856404;
+    }
+
+    &:has(> .info) {
+        background-color: #cce5ff; 
+        border: 1px solid #b8daff;
+        color: #004085;
     }
 }
 
-.success, .error {
+.success, .error, .warning, .info {
     padding: 0.75rem;
     border-radius: 0.5rem;
 }

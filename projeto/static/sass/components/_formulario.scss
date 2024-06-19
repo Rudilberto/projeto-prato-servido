@@ -1,0 +1,40 @@
+.formulario {
+    display: flex;
+    justify-content: center;   
+
+    &__form {
+        border-radius: 1rem ;
+        background-color: $off-white;
+        display: flex;
+        flex-flow: column;
+        gap: 1rem;
+        padding: 2rem 3rem;
+    }
+
+    &__campos {
+        display: flex;
+        gap: 1rem;
+        
+    }
+
+    &__campo {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        &-input {
+            border: 0;
+            min-height: 2.5rem;
+            width: 100%;
+            min-width: 30rem;
+        }
+    }
+
+    &__botao {
+        border: 0;
+        background-color: white;
+        padding: 0.6rem;
+        border-radius: 0.8rem;
+        cursor: pointer;
+    }
+}

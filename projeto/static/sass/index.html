@@ -10,22 +10,24 @@
 <main>
     <section class="login-section">
         <div class="messages">
-            <p class="success">Deslogado com sucesso</p>
+            <p class="error ">Deslogado com sucesso</p>
         </div>
         
         
-        <div class="login-container">
-            <form class="login-form" action="" method="POST">
+        <div class="formulario">
+            <form class="formulario__form" action="" method="POST">
                 
-                <div class="input-group">
-                    <label for="username">Email:</label>
-                    <input type="text" name="username" required>
+                <div class="formulario__campos">
+                    <div class="formulario__campo">
+                        <label for="username">Usuário</label>
+                        <input class="formulario__campo-input" type="text" name="username" required>
+                    </div>
+                    <div class="formulario__campo">
+                        <label for="password">Senha</label>
+                        <input class="formulario__campo-input" type="password" name="password" required>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" name="password" required>
-                </div>
-                <button type="submit" class="btn-login">Login</button>
+                <button type="submit" class="formulario__botao">Login</button>
             </form>
         </div>
 

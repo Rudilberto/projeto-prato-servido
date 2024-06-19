@@ -8,6 +8,10 @@ html {
   box-sizing: content-box;
 }
 
+section {
+  padding: 0 5rem;
+}
+
 * {
   font-size: 1.6rem;
 }
@@ -31,12 +35,57 @@ html {
 .messages:has(> .error) {
   background-color: lightcoral;
   border: 1px solid red;
-  color: darkred;
+  color: black;
+}
+.messages:has(> .warning) {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+}
+.messages:has(> .info) {
+  background-color: #cce5ff;
+  border: 1px solid #b8daff;
+  color: #004085;
 }
 
-.success, .error {
+.success, .error, .warning, .info {
   padding: 0.75rem;
   border-radius: 0.5rem;
+}
+
+.formulario {
+  display: flex;
+  justify-content: center;
+}
+.formulario__form {
+  border-radius: 1rem;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  padding: 2rem 3rem;
+}
+.formulario__campos {
+  display: flex;
+  gap: 1rem;
+}
+.formulario__campo {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.formulario__campo-input {
+  border: 0;
+  min-height: 2.5rem;
+  width: 100%;
+  min-width: 30rem;
+}
+.formulario__botao {
+  border: 0;
+  background-color: white;
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
