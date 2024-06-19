@@ -1,15 +1,14 @@
 {% extends 'core/base.html' %} {% load static %} {% block body %}
+<section>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="messages {{ message.tags }}">
+                <p class="{{ message.tags }}">{{ message }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
 
-{% if messages %}
-<div class="messages">
-    {% for message in messages %}
-        <p class="{{ message.tags }}">{{ message }}</p>
-    {% endfor %}
-</div>
-{% endif %}
-
-<h1>Hello, world</h1>
-
-<a href="{% url 'fazer_login' %}">Logar</a>
+    <h1>Hello, world</h1>
+</section>
 
 {% endblock %}

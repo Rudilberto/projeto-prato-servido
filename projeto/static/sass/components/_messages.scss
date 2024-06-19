@@ -9,25 +9,25 @@
     font-weight: bold;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-    &:has(> .success) {
+    &.success {
         background-color: #d4edda; 
         border: 1px solid #c3e6cb;
         color: #155724;
     }
 
-    &:has(> .error) {
+    &.error {
         background-color: lightcoral;
         border: 1px solid red;
         color: black;
     }
 
-    &:has(> .warning) {
+    &.warning {
         background-color: #fff3cd; 
         border: 1px solid #ffeeba;
         color: #856404;
     }
 
-    &:has(> .info) {
+    &.info {
         background-color: #cce5ff; 
         border: 1px solid #b8daff;
         color: #004085;

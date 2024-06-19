@@ -1,6 +1,7 @@
 .formulario {
     display: flex;
-    justify-content: center;   
+    justify-content: center; 
+    padding: 2rem 1.6rem;  
 
     &__form {
         border-radius: 1rem ;
@@ -13,8 +14,7 @@
 
     &__campos {
         display: flex;
-        gap: 1rem;
-        
+        gap: 3rem;
     }
 
     &__campo {
@@ -24,9 +24,8 @@
 
         &-input {
             border: 0;
-            min-height: 2.5rem;
             width: 100%;
-            min-width: 30rem;
+            padding: 0.6rem;
         }
     }
 
