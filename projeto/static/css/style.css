@@ -53,46 +53,31 @@ section {
   border-radius: 0.5rem;
 }
 
-.formulario {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 1.6rem;
+.whatsapp {
+  position: fixed;
+  aspect-ratio: 1/1;
+  width: 6vw;
+  bottom: 3rem;
+  right: 3rem;
+  transition: 0.35s;
 }
-.formulario__form {
-  border-radius: 1rem;
-  background-color: rgb(233, 233, 233);
-  display: flex;
-  flex-flow: column;
-  gap: 1rem;
-  padding: 2rem 3rem;
+@media (max-width: 767px) {
+  .whatsapp {
+    width: 6.2rem;
+  }
 }
-.formulario__campos {
-  display: flex;
-  gap: 3rem;
+@media (max-width: 767px) and (max-width: 480px) {
+  .whatsapp {
+    width: 4.8rem;
+  }
 }
-.formulario__campo {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+.whatsapp:hover {
+  transform: translate(0.2rem, 0.2rem);
 }
-.formulario__campo-input {
-  border: 0;
-  width: 100%;
-  padding: 0.6rem;
-}
-.formulario__botao {
-  border: 0;
-  background-color: white;
-  padding: 0.6rem;
-  border-radius: 0.8rem;
-  cursor: pointer;
-}
-
-.criar-conta {
-  display: flex;
-  flex-flow: column;
-  gap: 1.2rem;
-  align-items: center;
+@media (max-width: 480px) {
+  .whatsapp:hover {
+    transform: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
