@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %} {% load static %} {% block body %}
+
+<h1>Estabelecimentos atendidos pela Prato Servido &trade;</h1>
+
+{% for estabelecimento in estabelecimentos %}
+
+<div>
+  <img
+    src="{{ estabelecimento.logo.url }}"
+    alt="Logo da {{ estabelecimento.nome }}"
+  />
+  <p>{{ estabelecimento.nome }}</p>
+  <p>{{ estabelecimento.telefone }}</p>
+  <p>{{ estabelecimento.descricao }}</p>
+</div>
+
+{% endfor %} {% endblock %}
