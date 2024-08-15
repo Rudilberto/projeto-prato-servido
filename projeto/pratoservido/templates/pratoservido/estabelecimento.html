@@ -5,11 +5,13 @@
 {% for estabelecimento in estabelecimentos %}
 
 <div>
-  <img
-    src="{{ estabelecimento.logo.url }}"
-    alt="Logo da {{ estabelecimento.nome }}"
-  />
-  <p>{{ estabelecimento.nome }}</p>
+  <a href="{% url 'cardapio' estabelecimento.slug %}">
+    <img
+      src="{{ estabelecimento.logo.url }}"
+      alt="Logo da {{ estabelecimento.nome }}"
+    />
+    <p>{{ estabelecimento.nome }}</p>
+  </a>
   <p>{{ estabelecimento.telefone }}</p>
   <p>{{ estabelecimento.descricao }}</p>
 </div>

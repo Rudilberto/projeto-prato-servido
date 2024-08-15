@@ -5,5 +5,4 @@ from .models import *
 
 admin.site.register(Endereco)
 admin.site.register(Prato)
-admin.site.register(Cardapio)
 admin.site.register(Estabelecimento)

@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %} {% load static %} {% block body %} 
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="messages {{ message.tags }}">
+            <p class="{{ message.tags }}">{{ message }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<h2>Adicione um novo prato/lanche ao seu estabelecimento</h2>
+
+<form action="{% url 'adicionar_pratos' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <label for="nome">Nome do prato</label>
+        <input name="nome" type="text" placeholder="Nome">
+    </div>
+    <div>
+        <label for="preco">Preço</label>
+        <input name="preco" type="number" placeholder="Preço">
+    </div>
+    <div>
+        <label for="ingredientes">Ingredientes</label>
+        <input name="ingredientes" type="text" placeholder="Ingredientes">
+    </div>
+    <div>
+        <label for="imagem">Selecione uma imagem para seu prato</label>
+        <input name="imagem" type="file" accept="image/*">
+    </div>
+
+    <button type="submit">Adicionar prato</button>
+</form>
+
+{% endblock %}

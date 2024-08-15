@@ -1,0 +1,1 @@
+incluir no urls.py do projeto o caminho: path('accounts/', include('autenticacao.urls')),

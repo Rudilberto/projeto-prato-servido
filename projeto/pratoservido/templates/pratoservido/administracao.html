@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %} {% load static %} {% block body %}
+
+<a href="{% url 'fazer_logout' %}">Sair</a>
+<a href="{% url 'adicionar_pratos' %}">Adicionar pratos</a>
+<a href="{% url 'informacoes_estabelecmento' %}"
+  >Informações do estabelecimento</a
+>
+
+{% endblock %}

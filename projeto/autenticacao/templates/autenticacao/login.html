@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %} {% load static %} {% block body %}
+<main>
+    <section class="login-section">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="messages {{ message.tags }}">
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                </div>
+            {% endfor %}
+         {% endif %}
+        
+        <div class="formulario">
+            <form class="formulario__form" action="{% url 'fazer_login' %}" method="POST">
+                {% csrf_token %}
+                <div class="formulario__campos">
+                    <div class="formulario__campo">
+                        <label for="username">Usuário</label>
+                        <input class="formulario__campo-input" type="text" name="username" required>
+                    </div>
+                    <div class="formulario__campo">
+                        <label for="password">Senha</label>
+                        <input class="formulario__campo-input" type="password" name="password" required>
+                    </div>
+                </div>
+                <button type="submit" class="formulario__botao">Login</button>
+            </form>
+        </div>
+
+        <div class="criar-conta">
+            <div>
+                <p>Não tem uma conta? 
+                    <a href="{% url 'criar_conta' %}">Criar Conta</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
