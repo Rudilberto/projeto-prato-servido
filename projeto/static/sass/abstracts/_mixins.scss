@@ -1,1 +1,7 @@
-$off-white: rgb(233, 233, 233)
+@mixin media($largura) {
+  @media (max-width: $largura) {
+    @content;
+  }
+}
+
+$off-white: rgb(233, 233, 233);

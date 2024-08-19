@@ -1,16 +1,21 @@
-{% extends 'core/base.html' %} {% load static %} {% block body %} 
+{% extends 'core/base.html' %} {% load static %} {% block body %}
 
 <div>
-    <h1> {{ estabelecimento.nome }} </h1>
-    {% if estabelecimento.telefone != None %}
-        <h2> {{ estabelecimento.telefone }} </h2>
-    {% endif %}
-</div>
+  <h1>{{ estabelecimento.nome }}</h1>
+  {% if estabelecimento.telefone != None %}
+    <h2>{{ estabelecimento.telefone }}</h2>
+  {% endif %}
  
+  {% if estabelecimento.endereco != None %}
+    <h2>{{ estabelecimento.endereco }}</h2>
+  {% endif %}
+</div>
+
 {% for prato in pratos %}
-    <p>{{ prato.nome }}</p>
-    <img src="{{ prato.imagem.url }}" alt="Imagem do {{ prato.nome }}">
-    <p>{{ prato.preco }} R$ </p>
-{% endfor %}
+  <p>{{ prato.nome }}</p>
+  <img src="{{ prato.imagem.url }}" alt="Imagem do {{ prato.nome }}" />
+  <p>{{ prato.ingredientes }}</p>
+  <p>{{ prato.preco }} R$</p>
+{% endfor %} 
 
 {% endblock %}

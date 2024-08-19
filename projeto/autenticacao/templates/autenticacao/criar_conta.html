@@ -1,52 +1,80 @@
 {% extends 'core/base.html' %} {% load static %} {% block body %}
 <main>
-    <section class="login-section">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="messages {{ message.tags }}">
-                    <p class="{{ message.tags }}">{{ message }}</p>
-                </div>
-            {% endfor %}
-        {% endif %}
-        
-        <div class="formulario">
-            <form class="formulario__form" action="{% url 'criar_conta' %}" method="POST">
-                {% csrf_token %}
-                <div class="formulario__campos">
-                    <div class="formulario__campo">
-                        <label for="username">Usuário</label>
-                        <input class="formulario__campo-input" type="text" name="username" required>
-                    </div>
-                    <div class="formulario__campo">
-                        <label for="estabelecimento">Nome do estabelecimento</label>
-                        <input class="formulario__campo-input" type="text" name="estabelecimento" required>
-                    </div>
-                    <div class="formulario__campo">
-                        <label for="email">E-mail</label>
-                        <input class="formulario__campo-input" type="email" name="email" required>
-                    </div>
-                </div>
-                <div class="formulario__campos">
-                    <div class="formulario__campo">
-                        <label for="password">Senha</label>
-                        <input class="formulario__campo-input" type="password" name="password" required>
-                    </div>
-                    <div class="formulario__campo">
-                        <label for="confirm_password">Confirme sua Senha</label>
-                        <input class="formulario__campo-input" type="password" name="confirm_password" required>
-                    </div>
-                </div>
-                <button type="submit" class="formulario__botao">Cadastrar</button>
-            </form>
-        </div>
+  <section class="login-section">
+    {% if messages %} {% for message in messages %}
+    <div class="messages {{ message.tags }}">
+      <p class="{{ message.tags }}">{{ message }}</p>
+    </div>
+    {% endfor %} {% endif %}
 
-        <div class="criar-conta">
-            <div>
-                <p>Já tem uma conta? 
-                    <a href="{% url 'fazer_login' %}">Voltar</a>
-                </p>
-            </div>
+    <div class="formulario">
+      <form
+        class="formulario__form"
+        action="{% url 'criar_conta' %}"
+        method="POST"
+      >
+        {% csrf_token %}
+        <div class="formulario__campos">
+          <div class="formulario__campo">
+            <label for="username">Usuário</label>
+            <input
+              class="formulario__campo-input"
+              type="text"
+              name="username"
+              required
+            />
+          </div>
+          <div class="formulario__campo">
+            <label for="estabelecimento">Nome do estabelecimento</label>
+            <input
+              class="formulario__campo-input"
+              type="text"
+              name="estabelecimento"
+              required
+            />
+          </div>
+          <div class="formulario__campo">
+            <label for="email">E-mail</label>
+            <input
+              class="formulario__campo-input"
+              type="email"
+              name="email"
+              required
+            />
+          </div>
         </div>
-    </section>
+        <div class="formulario__campos">
+          <div class="formulario__campo">
+            <label for="password">Senha</label>
+            <input
+              class="formulario__campo-input"
+              type="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="formulario__campo">
+            <label for="confirm_password">Confirme sua Senha</label>
+            <input
+              class="formulario__campo-input"
+              type="password"
+              name="confirm_password"
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" class="formulario__botao">Cadastrar</button>
+      </form>
+    </div>
+
+    <div class="criar-conta">
+      <div>
+        <p>
+          Já tem uma conta?
+          <a href="{% url 'fazer_login' %}">Login</a>
+        </p>
+      </div>
+    </div>
+  </section>
 </main>
 {% endblock %}

@@ -1,9 +1,59 @@
 {% extends 'core/base.html' %} {% load static %} {% block body %} 
 
-{% for estabelecimento in estabelecimento %}
+{% if messages%} 
+    {% for message in messages %}
+        <div class="messages {{ message.tags }}">
+            <p class="{{ message.tags }}">{{ message }}</p>
+        </div>
+    {% endfor %}
+{% endif %}
 
-    <h1>{{ estabelecimento.nome }}</h1>
+<h1>Alterar informações do estabelecimento</h1>
 
-{% endfor %}
+<div class="formulario">
+    <form class="formulario__form" action="{% url 'informacoes_estabelecimento' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="formulario__campos">
+            <div class="formulario__campo">
+                <label for="estabelecimento">Nome do estabelecimento</label>
+                <input class="formulario__campo-input" type="text" name="estabelecimento"
+                {% if estabelecimento.nome %} 
+                    value="{{ estabelecimento.nome}}"
+                {% endif %} />
+            </div>
+            <div class="formulario__campo">
+                <label for="telefone">Telefone</label>
+                <input class="formulario__campo-input" type="number" name="telefone"
+                {% if estabelecimento.telefone %} 
+                    value="{{ estabelecimento.telefone}}"
+                {% endif %} />
+            </div>
+            <div class="formulario__campo">
+                <label for="endereco">Endereço</label>
+                <input class="formulario__campo-input" type="text" name="endereco"
+                {% if estabelecimento.endereco %} 
+                    value="{{ estabelecimento.endereco}}"
+                {% endif %} />
+            </div>
+            <div class="formulario__campo">
+                <label for="descricao">Adicione uma descrição do seu estabelecimento</label>
+                <input class="formulario__campo-input" type="text" name="descricao"
+                {% if estabelecimento.descricao %} 
+                    value="{{ estabelecimento.descricao}}"
+                {% endif %} />
+            </div>
+            <div class="formulario__campo">
+                <label for="logo">Selecione um arquivo para alterar a logo do seu estabelecimento:</label>
+                <input class="formulario__campo-input" type="file" accept="image/*" name="logo"
+                {% if estabelecimento.logo %}
+                <br>
+                    <p>Logo atual:</p>
+                    <img src="{{ estabelecimento.logo.url }}" alt="Logo do Estabelecimento" style="max-width: 200px; max-height: 200px;">
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" class="formulario__botao">Alterar informações</button>
+    </form>
+</div>
 
 {% endblock %}

@@ -1,13 +1,17 @@
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
 }
 
 section {
-    padding: 1.6rem 3rem;
+  padding: 1.6rem 3rem;
+
+  @include media(600px) {
+    padding: 0.8rem 1rem;
+  }
 }

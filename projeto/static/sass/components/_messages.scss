@@ -1,40 +1,42 @@
 .messages {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 3rem;
-    padding: 0.6rem;
-    border-radius: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 3rem;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-    &.success {
-        background-color: #d4edda; 
-        border: 1px solid #c3e6cb;
-        color: #155724;
-    }
+  &.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+  }
 
-    &.error {
-        background-color: lightcoral;
-        border: 1px solid red;
-        color: black;
-    }
+  &.error {
+    background-color: lightcoral;
+    border: 1px solid red;
+    color: black;
+  }
 
-    &.warning {
-        background-color: #fff3cd; 
-        border: 1px solid #ffeeba;
-        color: #856404;
-    }
+  &.warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+  }
 
-    &.info {
-        background-color: #cce5ff; 
-        border: 1px solid #b8daff;
-        color: #004085;
-    }
+  &.info {
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+    color: #004085;
+  }
 }
 
-.success, .error, .warning, .info {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
+.success,
+.error,
+.warning,
+.info {
+  padding: 0.75rem;
 }

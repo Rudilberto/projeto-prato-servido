@@ -11,6 +11,11 @@ html {
 section {
   padding: 1.6rem 3rem;
 }
+@media (max-width: 600px) {
+  section {
+    padding: 0.8rem 1rem;
+  }
+}
 
 * {
   font-size: 1.6rem;
@@ -48,9 +53,72 @@ section {
   color: #004085;
 }
 
-.success, .error, .warning, .info {
+.success,
+.error,
+.warning,
+.info {
   padding: 0.75rem;
-  border-radius: 0.5rem;
+}
+
+.login-section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.login-section .formulario {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1.6rem;
+}
+@media (max-width: 600px) {
+  .login-section .formulario {
+    width: 100%;
+  }
+}
+.login-section .formulario__form {
+  border-radius: 1rem;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  padding: 2rem 3rem;
+  max-width: 100%;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .login-section .formulario__form {
+    margin: auto;
+    padding: 1rem 2rem;
+    gap: 2.2rem;
+  }
+}
+.login-section .formulario__campos {
+  display: flex;
+  gap: 3rem;
+}
+@media (max-width: 600px) {
+  .login-section .formulario__campos {
+    flex-flow: column;
+    gap: 1rem;
+  }
+}
+.login-section .formulario__campo {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.login-section .formulario__campo-input {
+  border: 0;
+  width: 100%;
+  padding: 0.6rem;
+}
+.login-section .formulario__botao {
+  border: 0;
+  background-color: white;
+  padding: 0.6rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
 }
 
 .whatsapp {

@@ -9,11 +9,22 @@
     <img
       src="{{ estabelecimento.logo.url }}"
       alt="Logo da {{ estabelecimento.nome }}"
+      style="width: 120px; height: 120px"
     />
     <p>{{ estabelecimento.nome }}</p>
   </a>
-  <p>{{ estabelecimento.telefone }}</p>
-  <p>{{ estabelecimento.descricao }}</p>
+
+  {% if estabelecimento.telefone != None %}
+    <p>{{ estabelecimento.telefone }}</p>
+  {% endif %} 
+  
+  {% if estabelecimento.endereco != None %}
+    <p>{{ estabelecimento.endereco }}</p>
+  {% endif %} 
+  
+  {% if estabelecimento.descricao != None %}
+    <p>{{ estabelecimento.descricao }}</p>
+  {% endif %}
 </div>
 
 {% endfor %} {% endblock %}

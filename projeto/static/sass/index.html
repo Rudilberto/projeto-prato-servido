@@ -8,77 +8,77 @@
   </head>
   <body>
     <main>
-      <section>
-          <div class="hero">
-              <h1>Conheça o serviço <strong>Prato Servido &trade;</strong></h1>
-              <p>Gerencie os pedidos de seu negócio com mais agilidade com nosso sistema integrado ao Whatsapp e tenha mais lucros em seu estabelecimento!</p>
-          </div>
-      </section>
-      
-      <section>
-        <div class="vantagens">
-          <h2>Porque usar o Prato Servido &trade;?</h2>
-          <ul>
-            <li><strong>Comodidade:</strong> Deixe o atendimento aos clientes totalmente automatizado</li>
-            <li><strong>É simples:</strong> Para usar nosso serviço, basta apenas integrar o WhatsApp do estabelecimento e começar a usar</li>
-            <li><strong>Mais lucros:</strong> Não perca clientes por demora no atendimento com nosso serviço em tempo real</li>
-          </ul>
-        </div>
-      </section>
-      
-      <section>
-        <div class="informacoes">
-            <h2>Como Funciona?</h2>
-            <p>Veja como o Prato Servido &trade; pode transformar o atendimento do seu estabelecimento:</p>
-            <ol>
-                <li><strong>Integração Simples:</strong> Conecte o WhatsApp do seu estabelecimento ao nosso sistema em poucos passos.</li>
-                <li><strong>Atendimento Personalizado:</strong> Clientes são atendidos por uma inteligência artificial que guia suas escolhas.</li>
-                <li><strong>Pedidos pelo Site:</strong> Ofereça aos seus clientes a conveniência de fazerem pedidos diretamente pelo site dedicado.</li>
-                <li><strong>Notificação Instantânea:</strong> Receba notificações em tempo real de novos pedidos através do painel administrativo.</li>
-                <li><strong>Atualizações em Tempo Real:</strong> Informe facilmente pelo painel quando os pedidos estão prontos para retirada ou entrega.</li>
-                <li><strong>Comunicação Eficiente:</strong> Mantenha seus clientes informados com atualizações automáticas via WhatsApp sobre o status do pedido.</li>
-            </ol>
-        </div>
-      </section>
-
-      <section>
-        <div class="precos">
-            <div>
-                <h3>Pagamento Único</h3>
-                <ul>
-                    <li>R$ 800,00<small>/parcela única</small></li>
-                    <li>Pague uma vez e tenha acesso vitalício ao serviço</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Assinatura</h3>
-                <ul>
-                    <li>R$ 30,00<small>/mês</small></li>
-                    <li>Pagamento recorrente todos os meses</li>
-                </ul>
-            </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="contato">
-          <h2>Contato</h2>
-          <div>
-            <p>Telefone e WhatsApp: </p><a href="https://api.whatsapp.com/send?phone=53991486992" target="_blank">(53) 99148-6992</a>
-            <p>E-mail: </p><a href="mailto:neitzkerudilberto@gmail.com" target="_blank">neitzkerudilberto@gmail.com</a>
-          </div>
-        </div>
-      </section>
-
       <aside>
-        <a href="https://api.whatsapp.com/send?phone=53991486992" target="_blank">
-          <img
-            class="whatsapp"
-            src="../images/homepage/whatsapp-logo.png"
-            alt="Whatsapp logo"
-          />
-        </a>
+        <div class="messages success">
+          <p class="success">teste realizado com sucesso</p>
+        </div>
       </aside>
+
+      <section class="login-section">
+        <div class="formulario">
+          <form class="formulario__form" action="" method="POST">
+            <div class="formulario__campos">
+              <div class="formulario__campo">
+                <label for="username">Usuário</label>
+                <input
+                  class="formulario__campo-input"
+                  type="text"
+                  name="username"
+                  required
+                />
+              </div>
+              <div class="formulario__campo">
+                <label for="estabelecimento">Nome do estabelecimento</label>
+                <input
+                  class="formulario__campo-input"
+                  type="text"
+                  name="estabelecimento"
+                  required
+                />
+              </div>
+              <div class="formulario__campo">
+                <label for="email">E-mail</label>
+                <input
+                  class="formulario__campo-input"
+                  type="email"
+                  name="email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="formulario__campos">
+              <div class="formulario__campo">
+                <label for="password">Senha</label>
+                <input
+                  class="formulario__campo-input"
+                  type="password"
+                  name="password"
+                  required
+                />
+              </div>
+              <div class="formulario__campo">
+                <label for="confirm_password">Confirme sua Senha</label>
+                <input
+                  class="formulario__campo-input"
+                  type="password"
+                  name="confirm_password"
+                  required
+                />
+              </div>
+            </div>
+            <button type="submit" class="formulario__botao">Cadastrar</button>
+          </form>
+        </div>
+
+        <div class="criar-conta">
+          <div>
+            <p>
+              Já tem uma conta?
+              <a href="">Login</a>
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="../js/script.js"></script>
   </body>

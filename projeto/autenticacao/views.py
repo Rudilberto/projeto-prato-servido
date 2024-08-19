@@ -38,9 +38,8 @@ def criar_conta(request):
                 else:
                     usuario.set_password(senha)
                     usuario.save()
-                    estabelecimento, criado = Estabelecimento.objects.get_or_create(email=email)
+                    estabelecimento, criado = Estabelecimento.objects.get_or_create(usuario=usuario)
                     estabelecimento.usuario = usuario
-                    estabelecimento.email = email
                     estabelecimento.nome = nome_estabelecimento
                     estabelecimento.slug = slugify(nome_estabelecimento)
                     estabelecimento.save()
