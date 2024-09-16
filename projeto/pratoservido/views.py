@@ -32,7 +32,7 @@ def administracao(request):
 
 
 @login_required
-def adicionar_pratos(request):
+def gerenciar_pratos(request):
     usuario = request.user
     estabelecimento = Estabelecimento.objects.get(usuario=usuario)
     pratos = Prato.objects.filter(estabelecimento=estabelecimento)
@@ -44,11 +44,26 @@ def adicionar_pratos(request):
         Prato.objects.create(nome=nome, preco=preco, ingredientes=ingredientes, imagem=imagem, estabelecimento=estabelecimento)
         messages.success(request, 'Prato criado com sucesso!')
 
-        return redirect('adicionar_pratos')
+        return redirect('gerenciar_pratos')
     
     context = {'pratos': pratos}
-    return render(request, 'pratoservido/adicionar_pratos.html', context)
+    return render(request, 'pratoservido/gerenciar_pratos.html', context)
 
+
+@login_required
+def ativar_prato(request, id_prato):
+    prato = Prato.objects.filter(id=id_prato).first()
+
+    if not prato:
+        messages.warning(request, 'Prato não encontrado!')
+        return redirect('gerenciar_pratos')
+
+    if request.method == 'POST':
+        prato.ativo = 'ativo' in request.POST
+        prato.save()
+        messages.success(request, f'Status do prato "{prato.nome}" alterado com sucesso!')
+
+    return redirect('gerenciar_pratos')
 
 @login_required
 def remover_prato(request, id_prato):
@@ -56,12 +71,12 @@ def remover_prato(request, id_prato):
     
     if not prato:
         messages.warning(request, 'Prato não encontrado!')
-        return redirect('adicionar_pratos')
+        return redirect('gerenciar_pratos')
     
     prato.delete()
-    messages.success(request, 'Prato removido com sucesso!')
+    messages.success(request, f'Prato: "{prato.nome}" removido com sucesso!')
     
-    return redirect('adicionar_pratos')
+    return redirect('gerenciar_pratos')
 
 
 @login_required
