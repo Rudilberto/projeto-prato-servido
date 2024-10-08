@@ -1,4 +1,8 @@
-{% extends 'core/base.html' %} {% load static %} {% block body %}
+{% extends 'core/base.html' %} {% load static %}
+
+{% block head %}<script src="https://unpkg.com/htmx.org@2.0.2" integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ" crossorigin="anonymous"></script>{% endblock %}
+
+{% block body %}
 
 <div>
   <h1>{{ estabelecimento.nome }}</h1>
@@ -11,11 +15,23 @@
   {% endif %}
 </div>
 
+<button id="mostrar-carrinho" hx-get="{% url 'carrinho' estabelecimento.id %}" hx-trigger="click" hx-target="#carrinho">Carrinho</button>
+
 {% for prato in pratos %}
   <p>{{ prato.nome }}</p>
   <img src="{{ prato.imagem.url }}" alt="Imagem do {{ prato.nome }}" />
   <p>{{ prato.ingredientes }}</p>
   <p>{{ prato.preco }} R$</p>
+  
+  <form>
+    {% csrf_token %}
+    <button hx-post="{% url 'add_carrinho' prato.id %}" hx-trigger="click" hx-target="#carrinho">Adicionar ao carrinho</button>
+  </form>
 {% endfor %} 
 
+<aside id="carrinho" class="carrinho fechado">
+  {% include 'pratoservido/carrinho.html' %}
+</aside>
+
+<script src="{% static 'js/carrinho.js' %}"></script>
 {% endblock %}

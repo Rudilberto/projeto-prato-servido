@@ -1,0 +1,39 @@
+.carrinho {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100dvh;
+    background-color: aqua;
+    transition: width 0.3s ease;  
+
+    &.fechado {
+        width: 0;
+    }
+}
+
+.container-carrinho {
+    display: flex;
+    flex-flow: column;
+    padding: 2rem 1.6rem;
+    max-height: 85dvh;
+    margin-bottom: 2rem;
+
+    &__items {
+        overflow-y: auto;
+        flex-grow: 1;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
+    &__items-quantidade {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+    }
+}
+

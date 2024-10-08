@@ -1,0 +1,66 @@
+<div class="container-carrinho">
+    <button id="fechar-carrinho">Fechar carrinho</button>
+    <div class="container-carrinho__items">
+        {% if itens_pedido %}
+            {% for item in itens_pedido %}
+                <form>
+                    {% csrf_token %}
+                    <button hx-post="{% url 'excluir_carrinho' item.prato.id %}" hx-trigger="click" hx-target="#carrinho">X</button>
+                </form>
+                <img src="{{ item.prato.imagem.url }}" alt="Imagem do {{ item.prato.nome }}" />
+                <p>{{ item.prato.nome }}</p>
+                <p>{{ item.prato.preco }} R$</p>
+                <br>
+                <div class="container-carrinho__items-quantidade">
+                    <form>
+                        {% csrf_token %}
+                        <button hx-post="{% url 'remover_carrinho' item.prato.id %}" hx-trigger="click" hx-target="#carrinho">-</button>
+                    </form>
+                    <p>{{ item.quantidade }}</p>
+                    <form>
+                        {% csrf_token %}
+                        <button hx-post="{% url 'add_carrinho' item.prato.id %}" hx-trigger="click" hx-target="#carrinho">+</button>
+                    </form>
+                </div>
+            {% endfor %}
+            {% if pedido %}
+            <form action="{% url 'finalizar_carrinho' pedido.id %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <h3>Escolha a forma de pagamento</h3>
+                    {% for forma in forma_pagamento %}
+                        <input type="radio" name="pagamento" value="{{ forma.0 }}" />
+                        <label for="{{ forma.0 }}">{{ forma.1 }}</label>
+                    {% endfor %}
+                </div>
+                <div>
+                    <label for="bairro">Bairro:</label>
+                    <input name="bairro" type="text" placeholder="Ex: Centro" />
+                </div>
+                <div>
+                    <label for="endereco">Endereço:</label>
+                    <input name="endereco" type="text" placeholder="Ex: Avenida Fernando Osorio, 1050 " />
+                </div>
+
+                <button type="submit">Finalizar pedido</button>
+            </form>
+            {% endif %}
+        {% else %}
+            <h1>Carrinho vazio</h1>
+        {% endif %}
+    </div>
+</div>
+<script>
+    document.addEventListener('htmx:afterSettle', () => {
+        const carrinho = document.querySelector('.carrinho');
+        if (carrinho) {
+            // Remove a classe 'fechado' para que o carrinho apareça
+            carrinho.classList.remove('fechado');
+        }
+
+        document.getElementById('fechar-carrinho').addEventListener('click', () => {
+            const carrinho = document.querySelector('.carrinho');
+            carrinho.classList.add('fechado');
+        });
+    });
+</script>

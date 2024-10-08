@@ -10,10 +10,10 @@
 @import "layout/header", "layout/footer";
 
 // 5. Components
-@import "components/button", "components/messages", "components/formulario";
+@import "components/button", "components/messages", "components/formulario", "components/carrinho";
 
 // 6. Page-specific styles
-@import "pages/home";
+@import "pages/home", "pages/cardapio";
 
 // 7. Themes
 @import "themes/default";

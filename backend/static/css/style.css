@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 * {
@@ -15,6 +16,10 @@ section {
   section {
     padding: 0.8rem 1rem;
   }
+}
+
+button {
+  cursor: pointer;
 }
 
 * {
@@ -119,6 +124,40 @@ section {
   padding: 0.6rem;
   border-radius: 0.8rem;
   cursor: pointer;
+}
+
+.carrinho {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100dvh;
+  background-color: aqua;
+  transition: width 0.3s ease;
+}
+.carrinho.fechado {
+  width: 0;
+}
+
+.container-carrinho {
+  display: flex;
+  flex-flow: column;
+  padding: 2rem 1.6rem;
+  max-height: 85dvh;
+  margin-bottom: 2rem;
+}
+.container-carrinho__items {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.container-carrinho__items img {
+  width: 100%;
+  height: auto;
+}
+.container-carrinho__items-quantidade {
+  display: flex;
+  gap: 3px;
+  align-items: center;
 }
 
 .whatsapp {

@@ -1,5 +1,6 @@
 from django.urls import path  
 from .views import *
+from .views_htmx import *
 
 urlpatterns = [
     path('', homepage, name='homepage'),
@@ -12,4 +13,16 @@ urlpatterns = [
     path('ativar_prato/<int:id_prato>/', ativar_prato, name='ativar_prato'),
 
     path('administracao/informacoes_estabelecimento', informacoes_estabelecimento, name='informacoes_estabelecimento'),
+
+    path('finalizar_carrinho/<int:id_pedido>', finalizar_carrinho, name='finalizar_carrinho'),
 ]
+
+urlpatterns_htmx = [
+    path('carrinho/<int:id_estabelecimento>', carrinho, name='carrinho'),
+    path('add_carrinho/<int:id_prato>', add_carrinho, name='add_carrinho'),
+    path('remover_carrinho/<int:id_prato>', remover_carrinho, name='remover_carrinho'),
+    path('excluir_carrinho/<int:id_prato>', excluir_carrinho, name='excluir_carrinho'),
+
+]
+
+urlpatterns += urlpatterns_htmx

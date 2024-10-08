@@ -1,9 +1,22 @@
 {% extends 'core/base.html' %} {% load static %} {% block body %}
 
-<a href="{% url 'fazer_logout' %}">Sair</a>
 <a href="{% url 'gerenciar_pratos' %}">Adicionar pratos</a>
 <a href="{% url 'informacoes_estabelecimento' %}"
-  >Informações do estabelecimento</a
+>Informações do estabelecimento</a
 >
+<a href="{% url 'fazer_logout' %}">Sair</a>
+
+{% for pedido in pedidos %}
+
+  <div>
+    <p>{{ pedido.get_forma_pagamento_display }}</p>
+    <p>{{ pedido.bairro }}</p>
+    <p>{{ pedido.endereco }}</p>
+    {% for item in pedido.itenspedido_set.all %}
+      <p>{{ item.prato.nome }} - {{ item.quantidade }}</p>
+    {% endfor %}
+  </div>
+
+{% endfor %}
 
 {% endblock %}

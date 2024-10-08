@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 
 * {
@@ -14,4 +15,8 @@ section {
   @include media(600px) {
     padding: 0.8rem 1rem;
   }
+}
+
+button {
+  cursor: pointer;
 }

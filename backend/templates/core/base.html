@@ -11,9 +11,9 @@
       href="{% static 'images/logo/logopratoservidoicon.webp' %}"
       type="image/webp"
     />
+    {% block head %}{% endblock %}
   </head>
   <body>
     {% block body %} {% endblock %}
-    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

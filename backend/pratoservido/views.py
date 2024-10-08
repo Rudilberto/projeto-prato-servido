@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
+import uuid
 
 def homepage(request):
     return render(request, 'pratoservido/homepage.html')
@@ -20,14 +21,41 @@ def cardapio(request, slug=None):
     except  Estabelecimento.DoesNotExist:
         return redirect('estabelecimento')
     
+    if request.COOKIES.get('id_sessao'):
+        id_sessao = request.COOKIES.get('id_sessao')
+    else:
+        id_sessao = str(uuid.uuid4())
+    
     context = {'estabelecimento': estabelecimento, 'pratos': pratos}
-    return render(request, 'pratoservido/cardapio.html', context)
+    resposta = render(request, 'pratoservido/cardapio.html', context)
+
+    if not request.COOKIES.get('id_sessao'):
+        resposta.set_cookie(key='id_sessao', value=id_sessao, max_age=60*60*24*30)
+
+    return resposta
+
+
+def finalizar_carrinho(request, id_pedido):
+    if request.method == 'POST':
+        dados = request.POST.dict()
+        pedido = Pedido.objects.get(id=id_pedido)
+        pedido.forma_pagamento = dados['pagamento']
+        pedido.bairro = dados['bairro']
+        pedido.endereco = dados['endereco']
+        pedido.finalizado = True
+        pedido.save()
+    
+
+    return redirect('cardapio', slug=pedido.estabelecimento.slug)
 
 
 @login_required
 def administracao(request):
+    usuario = request.user
+    estabelecimento = Estabelecimento.objects.get(usuario=usuario)
+    pedidos = Pedido.objects.filter(estabelecimento=estabelecimento, finalizado=True)
 
-    context = {}
+    context = {'estabelecimento': estabelecimento, 'pedidos': pedidos}
     return render(request, 'pratoservido/administracao.html', context)
 
 
