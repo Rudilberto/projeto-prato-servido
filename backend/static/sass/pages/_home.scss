@@ -1,24 +1,24 @@
 .whatsapp {
-    position: fixed;
-    aspect-ratio: 1/1;
-    width: 6vw;
-    bottom: 3rem;
-    right: 3rem;
-    transition: 0.35s;
-  
-    @media (max-width: 767px) {
-      width: 6.2rem;
-  
-      @media (max-width: 480px) {
-        width: 4.8rem;
-      }
-    }
-  
-    &:hover {
-      transform: translate(0.2rem, 0.2rem);
-  
-      @media (max-width: 480px) {
-        transform: none;
-      }
+  position: fixed;
+  aspect-ratio: 1/1;
+  width: 5vw;
+  bottom: 3rem;
+  right: 3rem;
+  transition: 0.35s;
+
+  @media (max-width: 767px) {
+    width: 6.2rem;
+
+    @media (max-width: 480px) {
+      width: 4.8rem;
     }
   }
+
+  &:hover {
+    transform: translate(0.2rem, 0.2rem);
+
+    @media (max-width: 480px) {
+      transform: none;
+    }
+  }
+}

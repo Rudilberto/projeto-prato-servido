@@ -124,7 +124,7 @@ section {
 .whatsapp {
   position: fixed;
   aspect-ratio: 1/1;
-  width: 6vw;
+  width: 5vw;
   bottom: 3rem;
   right: 3rem;
   transition: 0.35s;
