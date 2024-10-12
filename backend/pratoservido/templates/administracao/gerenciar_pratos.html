@@ -10,6 +10,8 @@
 
 <h2>Adicione um novo prato/lanche ao seu estabelecimento</h2>
 
+<a href="{% url 'administracao' %}">Voltar</a>
+
 <form action="{% url 'gerenciar_pratos' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div>

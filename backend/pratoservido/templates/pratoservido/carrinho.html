@@ -29,19 +29,23 @@
                 <div>
                     <h3>Escolha a forma de pagamento</h3>
                     {% for forma in forma_pagamento %}
-                        <input type="radio" name="pagamento" value="{{ forma.0 }}" />
+                        <input type="radio" name="pagamento" value="{{ forma.0 }}" required/>
                         <label for="{{ forma.0 }}">{{ forma.1 }}</label>
                     {% endfor %}
                 </div>
                 <div>
                     <label for="bairro">Bairro:</label>
-                    <input name="bairro" type="text" placeholder="Ex: Centro" />
+                    <input name="bairro" type="text" placeholder="Ex: Centro" required />
                 </div>
                 <div>
                     <label for="endereco">Endereço:</label>
-                    <input name="endereco" type="text" placeholder="Ex: Avenida Fernando Osorio, 1050 " />
+                    <input name="endereco" type="text" placeholder="Ex: Avenida Fernando Osorio, 1050" required/>
                 </div>
-
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input name="telefone" type="tel" placeholder="(00) 12345-6789" required/>
+                </div>
+                
                 <button type="submit">Finalizar pedido</button>
             </form>
             {% endif %}

@@ -10,6 +10,8 @@
 
 <h1>Alterar informações do estabelecimento</h1>
 
+<a href="{% url 'administracao' %}">Voltar</a>
+
 <div class="formulario">
     <form class="formulario__form" action="{% url 'informacoes_estabelecimento' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}

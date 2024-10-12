@@ -23,6 +23,9 @@ urlpatterns_htmx = [
     path('remover_carrinho/<int:id_prato>', remover_carrinho, name='remover_carrinho'),
     path('excluir_carrinho/<int:id_prato>', excluir_carrinho, name='excluir_carrinho'),
 
+    path('cartao_pedidos', cartao_pedidos, name='cartao_pedidos'),
+    path('preparar_pedido/<int:id_pedido>', preparar_pedido, name='preparar_pedido'),
+    path('entregar_pedido/<int:id_pedido>', entregar_pedido, name='entregar_pedido'),
 ]
 
 urlpatterns += urlpatterns_htmx

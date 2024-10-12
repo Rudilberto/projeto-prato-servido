@@ -15,6 +15,14 @@
   {% endif %}
 </div>
 
+{% if messages %}
+  {% for message in messages %}
+      <div class="messages {{ message.tags }}">
+          <p class="{{ message.tags }}">{{ message }}</p>
+      </div>
+  {% endfor %}
+{% endif %}
+
 <button id="mostrar-carrinho" hx-get="{% url 'carrinho' estabelecimento.id %}" hx-trigger="click" hx-target="#carrinho">Carrinho</button>
 
 {% for prato in pratos %}

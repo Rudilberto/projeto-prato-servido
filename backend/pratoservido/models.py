@@ -48,14 +48,11 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Cliente, null=True, blank=True, on_delete=models.SET_NULL)
     bairro = models.CharField(max_length=200, null=True, blank=True)
     endereco = models.CharField(max_length=200, null=True, blank=True)
+    telefone = models.CharField(max_length=200, null=True, blank=True)
     estabelecimento = models.ForeignKey(Estabelecimento, null=True, blank=True, on_delete=models.CASCADE)
 
-    finalizado = models.BooleanField(default=False)
-    preparacao = models.BooleanField(default=False)
-    entregue = models.BooleanField(default=False)
-
     def __str__(self):
-        return f'Id do cliente: {self.cliente.id} - Estabelecimento: {self.estabelecimento.nome} - finalizado={self.finalizado}'
+        return f'Id do cliente: {self.cliente.id} - Estabelecimento: {self.estabelecimento.nome} - finalizado={self.status.finalizado} - entregue={self.status.entregue}'
     
     @property
     def quantidade_total(self):
@@ -64,6 +61,15 @@ class Pedido(models.Model):
     @property
     def preco_total(self):
         return ItensPedido.objects.filter(pedido=self).aggregate(Sum('quantidade_total'))['quantidade_total__sum'] or 0
+    
+
+class StatusPedido(models.Model):
+    pedido = models.OneToOneField(Pedido, on_delete=models.CASCADE, related_name='status')
+    finalizado = models.BooleanField(default=False)
+    data_finalizacao = models.DateTimeField(null=True, blank=True)
+    preparacao = models.BooleanField(default=False)
+    data_entrega = models.DateTimeField(null=True, blank=True)
+    entregue = models.BooleanField(default=False)
 
     
 class ItensPedido(models.Model):

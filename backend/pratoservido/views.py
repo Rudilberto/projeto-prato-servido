@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import *
 import uuid
+from django.utils import timezone
+
 
 def homepage(request):
     return render(request, 'pratoservido/homepage.html')
@@ -39,24 +41,19 @@ def finalizar_carrinho(request, id_pedido):
     if request.method == 'POST':
         dados = request.POST.dict()
         pedido = Pedido.objects.get(id=id_pedido)
+        statuspedido = pedido.status
         pedido.forma_pagamento = dados['pagamento']
         pedido.bairro = dados['bairro']
         pedido.endereco = dados['endereco']
-        pedido.finalizado = True
+        pedido.telefone = dados['telefone']
+        statuspedido.finalizado = True
+        statuspedido.data_finalizacao = timezone.now()
         pedido.save()
+        statuspedido.save()
+        messages.success(request, message='Pedido finalizado!')
     
 
     return redirect('cardapio', slug=pedido.estabelecimento.slug)
-
-
-@login_required
-def administracao(request):
-    usuario = request.user
-    estabelecimento = Estabelecimento.objects.get(usuario=usuario)
-    pedidos = Pedido.objects.filter(estabelecimento=estabelecimento, finalizado=True)
-
-    context = {'estabelecimento': estabelecimento, 'pedidos': pedidos}
-    return render(request, 'pratoservido/administracao.html', context)
 
 
 @login_required
@@ -75,7 +72,7 @@ def gerenciar_pratos(request):
         return redirect('gerenciar_pratos')
     
     context = {'pratos': pratos}
-    return render(request, 'pratoservido/gerenciar_pratos.html', context)
+    return render(request, 'administracao/gerenciar_pratos.html', context)
 
 
 @login_required
@@ -111,7 +108,6 @@ def remover_prato(request, id_prato):
 def informacoes_estabelecimento(request):
     usuario = request.user
     estabelecimento = Estabelecimento.objects.get(usuario=usuario)
-    id = estabelecimento.id
 
     if request.method == 'POST':
         estabelecimento.nome = request.POST.get('estabelecimento')
@@ -127,4 +123,4 @@ def informacoes_estabelecimento(request):
         messages.success(request, 'Informações do estabelecimento alterados com sucesso!')
 
     context = {'estabelecimento': estabelecimento}
-    return render(request, 'pratoservido/informacoes_estabelecimento.html', context)
+    return render(request, 'administracao/informacoes_estabelecimento.html', context)

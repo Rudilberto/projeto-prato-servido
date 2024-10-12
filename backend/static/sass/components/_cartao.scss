@@ -1,0 +1,17 @@
+.container-cartao {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 1.6rem;
+}
+
+.cartao {
+    padding: 2rem 1.6rem;
+    
+    &__em-espera {
+        background-color: yellow;
+    }
+
+    &__em-preparacao {
+        background-color: green;
+    }
+}

@@ -160,6 +160,22 @@ button {
   align-items: center;
 }
 
+.container-cartao {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 1.6rem;
+}
+
+.cartao {
+  padding: 2rem 1.6rem;
+}
+.cartao__em-espera {
+  background-color: yellow;
+}
+.cartao__em-preparacao {
+  background-color: green;
+}
+
 .whatsapp {
   position: fixed;
   aspect-ratio: 1/1;

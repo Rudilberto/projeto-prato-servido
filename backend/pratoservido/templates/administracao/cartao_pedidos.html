@@ -1,0 +1,42 @@
+<div class="container-cartao">
+  <div>
+    <h2>Em espera</h2>
+    {% for pedido in pedidos %}
+      <div class="cartao__em-espera">
+        <p>{{ pedido.get_forma_pagamento_display }}</p>
+        <p>{{ pedido.bairro }}</p>
+        <p>{{ pedido.endereco }}</p>
+        <p>{{ pedido.telefone }}</p>
+        {% for item in pedido.itenspedido_set.all %}
+          <p>{{ item.prato.nome }} - {{ item.quantidade }}</p>
+        {% endfor %}
+        <p>{{ pedido.data_finalizacao|date:"d/m/Y H:i" }}</p>
+        <form>
+          {% csrf_token %}
+          <button hx-post="{% url 'preparar_pedido' pedido.id %}" hx-trigger="click" hx-target="#cartao-pedido">Em preparação</button>
+        </form>
+    
+      </div>
+    {% endfor %}
+  </div>
+  <div>
+    <h2>Em preparação</h2>
+    {% for pedido in pedidos_em_preparacao %}
+      <div class="cartao__em-preparacao">
+        <p>{{ pedido.get_forma_pagamento_display }}</p>
+        <p>{{ pedido.bairro }}</p>
+        <p>{{ pedido.endereco }}</p>
+        <p>{{ pedido.telefone }}</p>
+        {% for item in pedido.itenspedido_set.all %}
+          <p>{{ item.prato.nome }} - {{ item.quantidade }}</p>
+        {% endfor %}
+        <p>{{ pedido.data_finalizacao|date:"d/m/Y H:i" }}</p>
+        <form>
+          {% csrf_token %}
+          <button hx-post="{% url 'entregar_pedido' pedido.id %}" hx-trigger="click" hx-target="#cartao-pedido">Em rota de entrega</button>
+        </form>
+    
+      </div>
+    {% endfor %}
+  </div>
+</div>
